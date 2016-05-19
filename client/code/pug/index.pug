@@ -1,0 +1,146 @@
+extends include/layout
+block content
+	.index_group.wrap
+		.brand_list.fl
+			.list.all
+				a.title(src="javascript:") 全部分类
+			- for(i = 0; i< 4; i++){
+				.list
+					a.title(src="javascript:") 推荐品牌
+					a.link(src="javascript:") 艾妮尔   
+					a.link(src="javascript:") 幂诗亚蔻
+					a.link(src="javascript:") 伊尔芙莲
+					a.link(src="javascript:") 帛乐风
+					a.link(src="javascript:") PROVERB
+					a.link(src="javascript:") 鞋爱
+					.clear
+			- }
+		.fr
+			.banner_box
+				.banner
+					a(href="javascript:")
+						img(src="image/index/pic_banner.jpg")
+					a(href="javascript:")
+						img(src="image/index/pic_banner.jpg")
+					a(href="javascript:")
+						img(src="image/index/pic_banner.jpg")
+					a(href="javascript:")
+						img(src="image/index/pic_banner.jpg")
+					a(href="javascript:")
+						img(src="image/index/pic_banner.jpg")
+				.banner_r
+					img(src="image/index/pic_banner_r_1.jpg")
+					img(src="image/index/pic_banner_r_2.jpg")
+					img(src="image/index/pic_banner_r_3.jpg")
+		.clear
+	.brand_tab
+		.tab
+			a.active(href="javascript:") 推荐品牌
+			a(href="javascript:") 推荐品牌
+			a(href="javascript:") 推荐品牌
+			a(href="javascript:") 推荐品牌
+			a(href="javascript:") 推荐品牌
+			a(href="javascript:") 推荐品牌
+			span.line
+			.clear
+		a.icon.prev(href="javascript:")
+				img(src="image/index/icon_prev.jpg")
+		a.icon.next(href="javascript:")
+				img(src="image/index/icon_next.jpg")
+
+		mixin box(content_html)
+			- var _list = [1,2,3,4,5,6]
+			each II in _list
+				- if(II == 1){
+					+box_html(II, "display: block")
+				- }else{
+					+box_html(II)
+				- }		
+		mixin box_html(II, this_style)
+			.box(style=this_style)
+				ul
+					- for(i = 0; i < 4; i++){
+						li.fl
+							- if(II%2 == 0){
+								- var li_2n = 1
+								- var li_2n1 = 2
+							- }else{
+								- var li_2n = 2
+								- var li_2n1 = 1
+							- }
+							- if(i%2 == 0){
+								+content_html(li_2n)
+							- }else{
+								+content_html(li_2n1)
+							- }
+					- }
+					.clear
+		mixin content_html(number)
+			img.title(src="image/index/brand_tab_title_"+number+".jpg")
+			img.mx(src="image/index/brand_tab_mx_"+number+".jpg")
+			.image_list
+				img(src="image/index/brand_tab_mini_1.jpg")
+				img(src="image/index/brand_tab_mini_2.jpg")
+				img(src="image/index/brand_tab_mini_3.jpg")
+				img(src="image/index/brand_tab_mini_4.jpg")
+				.clear
+		+box
+
+	.goods_group.wrap.hot_goods
+		.title
+			img(src="image/index/title_1.png")
+		.goods_list
+			- for(i = 0; i < 10; i++){
+				.goods
+					a.goods_image(href="buy.html")
+						img(src="image/pic_goods.jpg")
+					.goods_title 新款重工刺绣黑色蕾丝绣花连衣裙
+					.goods_brand
+						span 奈希雅
+						a.btn(href="buy.html") 去购买
+			- }
+			.clear
+
+	.goods_group.wrap.sale_goods
+		.title
+			img(src="image/index/title_2.png")
+		.goods_list
+			- for(i = 0; i < 10; i++){
+				.goods
+					a.goods_image(href="buy.html")
+						img(src="image/pic_goods.jpg")
+					.goods_title 新款重工刺绣黑色蕾丝绣花连衣裙
+					.goods_brand
+						span 奈希雅
+						a.btn(href="buy.html") 去购买
+			- }
+			.clear
+
+	include include/footer
+	
+	script.
+		$(function(){
+			this_page(0)
+
+			tab_toggle('.brand_tab .tab', '.brand_tab .box')
+
+			var bannerObj = {
+				banner: [
+					{
+						img:  'image/index/pic_banner.jpg',
+						href: 'javascript:'
+					},
+					{
+						img:  'image/index/pic_banner.jpg',
+						href: 'javascript:'
+					}
+				],
+				config: {
+					easing: 'opacity',
+					//- animate_speed: 1000,
+					autoPlay_speed: 5000
+				}
+			}
+
+			set_banner('.banner', bannerObj)
+		})

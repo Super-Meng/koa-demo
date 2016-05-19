@@ -1,0 +1,55 @@
+extends include/layout
+block content
+	.brand
+		.banner
+		.brand_list
+			-var list = [{title: '艾妮尔',tips: '重工刺绣  原创品牌'},{title: '奈希雅 NEXIIA',tips: '自设工厂  原创设计'},{title: '伊尔芙莲',tips: '自设工厂  原创设计'},{title: '艾妮尔',tips: '重工刺绣  原创品牌'},{title: '奈希雅 NEXIIA',tips: '自设工厂  原创设计'},{title: '伊尔芙莲',tips: '自设工厂  原创设计'}]
+			-list.forEach(function(_list, i){
+				.list
+					.title
+						span
+						p #{_list.title}
+					.box
+						a.logo_page.fl(href="brand_1.html")
+							img(src="image/brand/logo_"+ (i%3+1) +".jpg")
+							span #{_list.tips}
+						.banner_page.fl
+							img(src="image/brand/title_"+ (i%3+1) +".jpg")
+						.clear
+					.image_group
+						.line
+						a.icon.prev(href="brand_1.html")
+							img(src="image/index/icon_prev.jpg")
+						a.icon.next(href="brand_1.html")
+							img(src="image/index/icon_next.jpg")
+						.image_wrap
+							img(src="image/brand/goods_mini_1.jpg")
+							img(src="image/brand/goods_mini_2.jpg")
+							img(src="image/brand/goods_mini_3.jpg")
+							img(src="image/brand/goods_mini_4.jpg")
+							img(src="image/brand/goods_mini_5.jpg")
+							.clear
+			-})
+			//品牌汇一览
+			.brand_nav
+				.title 品牌汇一览
+				.list
+					a(href="brand_1.html") 艾妮尔
+					a(href="brand_1.html") 伊尔芙莲
+					a(href="brand_1.html") 艾妮尔
+					a(href="brand_1.html") 伊尔芙莲
+					a(href="brand_1.html") 艾妮尔
+					a(href="brand_1.html") 伊尔芙莲
+					a(href="brand_1.html") 艾妮尔
+					a(href="brand_1.html") 伊尔芙莲
+					a(href="brand_1.html") 艾妮尔
+					a(href="brand_1.html") 伊尔芙莲
+					a(href="brand_1.html") 艾妮尔
+					a(href="brand_1.html") 伊尔芙莲
+				a.icon.prev(href="brand_1.html")
+				a.icon.next(href="brand_1.html")
+
+	script.
+		$(function(){
+			this_page(2)
+		})

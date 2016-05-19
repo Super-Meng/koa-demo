@@ -1,0 +1,36 @@
+extends include/layout
+block content
+	.brand_details
+		.banner
+			.detail
+				.image_page
+					img(src="image/brand/logo_1.jpg")
+				.btn_group
+					a(href="javascript:")
+						img(src="image/brand/icon_msn.jpg")
+					a(href="javascript:")
+						img(src="image/brand/icon_share.jpg")
+				.title GINAKAI 东润旗下子品牌
+				.address 荔秀服饰文化街区 105 栋 B612
+				.text.
+					深圳市东润服饰有限公司是一家集自主研发设计、生产、销售为一体的国际化时装公司，公司拥有完整、科学的质量管理体系，拥有优质的产品质量,广阔的市场前景,丰厚的批发代理待遇,强大的批发代理优势，深圳市东润服饰有限公司的诚信、实力和产品质量是的获得业界的认可。欢迎各界朋友莅临参观、指导和业务洽谈。
+		.brand_goods
+			- for(II = 0; II < 2; II++){
+				.title.wrap 品类分类
+					a.fr(href="javascript:") 查看更多 >
+					.clear
+				.goods_list.wrap
+					- for(i = 0; i < 8; i++){
+						.goods
+							.image_page
+								img(src="image/details/pic_goods.jpg")
+							.name 欧洲站2016春季欧美新款印花长袖 大摆雪纺中长裙两件套装女
+							a.btn(href="buy.html") 查看详情
+					- }
+					.clear
+			- }
+
+	script.
+		$(function(){
+
+		})

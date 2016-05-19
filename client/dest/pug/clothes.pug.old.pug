@@ -1,0 +1,47 @@
+extends include/layout
+block content
+	- var list_data = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','S','Y','0-9']
+	.clothes
+		.tab.wrap
+			a(href="javascript:") 品牌A~Z
+			a(href="javascript:") 品牌A~Z
+			a(href="javascript:") 品牌A~Z
+			a(href="javascript:") 品牌A~Z
+			a(href="javascript:") 品牌A~Z
+			a(href="javascript:") 品牌A~Z
+			.clear
+		.tab.mini.wrap
+			- for(i = 0;i < list_data.length; i++){
+				a(href="javascript:") #{list_data[i]}
+			- }
+			.clear
+		.clothes_box.wrap
+			- for(i = 0;i < list_data.length; i++){
+				.list
+					a.title(href="buy.html") #{list_data[i]}
+					a.link(href="buy.html") ANNE AND THE CRWD
+					a.link(href="buy.html") ALL COMES FROM NOTHING
+					a.link(href="buy.html") ANNE AND THE CRWD
+					a.link(href="buy.html") ALEXANDER.T.ZHAO
+					a.link(href="buy.html") ALL COMES FROM NOTHING
+					a.link(href="buy.html") AR&TESIA
+					.clear
+			- }
+
+
+	script.
+		$(function(){
+			this_page(1)
+			//a-z跳转
+			tab_mini_jump()
+
+			function tab_mini_jump(){
+				$('.tab.mini a').on('click', function(){
+					var _len = $(this).index()
+					var _top = $('.clothe_box .list').eq(_len).offset().top
+					$('html,body').animate({
+						'scrollTop': _top
+					},500)
+				})
+			}
+		})
